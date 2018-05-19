@@ -11,8 +11,9 @@ using namespace std;
 int main()
 {
   int size = 199692;
-  char * memblock = new char[size];
-
+  int large_size = 500000;
+  char memblock[size];
+  memset(memblock, 0, sizeof(memblock));
   //set up a timer
   Proctimer a_timer;
 
@@ -27,6 +28,13 @@ int main()
     i_file.close();
     //cout << "finished" << endl;
   }
+
+  //for(int i = 0; i < size; i++)
+  //{
+  //  printf("%x", memblock[i]);
+  //}
+  //printf("\n");
+
   //end: open and read a dummy bin to memory
 
   int server_fd, new_socket;
@@ -37,9 +45,17 @@ int main()
   cout << "Linstening" << endl;
   server_socket_new(new_socket, server_fd, address);
   cout << "Connected" << endl;
-  send(new_socket, memblock, sizeof(memblock), 0);
+  int cycle = 10000;
+
+  cout << "Start sending " << size << " MB data for " << cycle << " times." << endl;
+  a_timer.get_start_time();
+  for(int i = 0; i < cycle; i++)
+  {
+    send(new_socket, memblock, size, 0);
+  }
+  a_timer.get_end_time("Total send");
+
   cout << "Sent" << endl;
-  delete[] memblock;
 
   return 0;
 }
