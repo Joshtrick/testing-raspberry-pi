@@ -31,10 +31,9 @@ int main()
 
   int server_fd, new_socket;
   struct sockaddr_in address;
-  
+
   server_socket_create(server_fd, 8080, address);
   cout << "Created" << endl;
-  server_socket_listen(server_fd);
   cout << "Linstening" << endl;
   server_socket_new(new_socket, server_fd, address);
   cout << "Connected" << endl;
