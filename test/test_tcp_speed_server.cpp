@@ -37,6 +37,8 @@ int main()
   cout << "Linstening" << endl;
   server_socket_new(new_socket, server_fd, address);
   cout << "Connected" << endl;
+  send(new_socket, memblock, sizeof(memblock), 0);
+  cout << "Sent" << endl;
   delete[] memblock;
 
   return 0;

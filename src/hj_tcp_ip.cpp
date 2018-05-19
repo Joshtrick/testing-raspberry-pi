@@ -45,10 +45,10 @@ void server_socket_new(int &new_socket, int &server_fd, struct sockaddr_in &addr
   }
 }
 //Client Part-create a client socket
-void client_socket_create(int &sock, string server_ip = "127.0.0.1", int port)
+void client_socket_create(int &sock, char* server_ip, int port)
 {
   struct sockaddr_in serv_addr;
-  if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+  if((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
   {
     perror("[CORERAIN] Client-socket creation");
     exit(EXIT_FAILURE);
@@ -66,9 +66,37 @@ void client_socket_create(int &sock, string server_ip = "127.0.0.1", int port)
     exit(EXIT_FAILURE);
   }
 
-  if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
+  if(connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
   {
     perror("[CORERAIN] Client-socket connection");
     exit(EXIT_FAILURE);
   }
 }
+////Data Transfer
+//void send_a_block(int &sock, const void *buffer)
+//{
+//  if(send(sock, buffer, sizeof(buffer), 0) < 0)
+//  {
+//    perror("[CORERAIN] TCP/IP Data Transfer-send");
+//    exit(EXIT_FAILURE);
+//  }
+//}
+//
+//void recv_a_block(int &sock, (void *) &buffer, size_t length)
+//{
+//  if(recv(sock, buffer, length, MSG_WAITALL) < 0)
+//  {
+//    perror("[CORERAIN] TCP/IP Data Transfer-receive");
+//    exit(EXIT_FAILURE);
+//  }
+//}
+
+
+
+
+
+
+
+
+
+
