@@ -11,8 +11,8 @@ using namespace std;
 int main()
 {
   int size = 199692;
-  int large_size = 500000;
-  char memblock[size];
+  int large_size = 514*514*3;
+  char memblock[large_size];
   memset(memblock, 0, sizeof(memblock));
   //set up a timer
   Proctimer a_timer;
@@ -45,13 +45,13 @@ int main()
   cout << "Linstening" << endl;
   server_socket_new(new_socket, server_fd, address);
   cout << "Connected" << endl;
-  int cycle = 10000;
+  int cycle = 1e4;
 
-  cout << "Start sending " << size << " MB data for " << cycle << " times." << endl;
+  cout << "Start sending " << large_size << " Bytes data for " << cycle << " times." << endl;
   a_timer.get_start_time();
   for(int i = 0; i < cycle; i++)
   {
-    send(new_socket, memblock, size, 0);
+    send(new_socket, memblock, large_size, 0);
   }
   a_timer.get_end_time("Total send");
 

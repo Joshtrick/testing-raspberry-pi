@@ -11,8 +11,8 @@ using namespace std;
 int main()
 {
   int size = 199692;
-  int large_size = 500000;
-  char memblock[size];
+  int large_size = 514*514*3;
+  char memblock[large_size];
   memset(memblock, 0, sizeof(memblock));
   //set up a timer
   Proctimer a_timer;
@@ -23,13 +23,13 @@ int main()
   client_socket_create(client_socket, server_ip, 8080);
   cout << "Connected" << endl;
 
-  int cycle = 10000;
+  int cycle = 1e4;
 
-  cout << "Start receiving " << size << " MB data for " << cycle << " times." << endl;
+  cout << "Start receiving " << large_size << " Bytes data for " << cycle << " times." << endl;
   a_timer.get_start_time();
   for(int i = 0; i < cycle; i++)
   {
-    recv(client_socket, memblock, size, MSG_WAITALL);
+    recv(client_socket, memblock, large_size, MSG_WAITALL);
   }
   a_timer.get_end_time("Totle receive");
 
