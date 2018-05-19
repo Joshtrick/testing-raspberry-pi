@@ -1,5 +1,7 @@
 #include "hj_utils.hpp"
 
+using namespace std;
+
 void Proctimer::get_start_time()
 {
   clock_gettime(CLOCK_REALTIME, &t_start);
