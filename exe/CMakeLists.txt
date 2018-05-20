@@ -1,11 +1,16 @@
-add_executable(test_rw_speed test_rw_speed.cpp)
-target_link_libraries(test_rw_speed ${PROJECT_NAME})
+set(MY_EXE test_rw_speed)
+add_executable(${MY_EXE} ${MY_EXE}.cpp)
+target_link_libraries(${MY_EXE} ${PROJECT_NAME})
 
-add_executable(test_tcp_speed_server test_tcp_speed_server.cpp)
-target_link_libraries(test_tcp_speed_server ${PROJECT_NAME})
+set(MY_EXE test_tcp_speed_server)
+add_executable(${MY_EXE} ${MY_EXE}.cpp)
+target_link_libraries(${MY_EXE} ${PROJECT_NAME})
 
-add_executable(test_tcp_speed_client test_tcp_speed_client.cpp)
-target_link_libraries(test_tcp_speed_client ${PROJECT_NAME})
+set(MY_EXE test_tcp_speed_client)
+add_executable(${MY_EXE} ${MY_EXE}.cpp)
+target_link_libraries(${MY_EXE} ${PROJECT_NAME})
 
-add_executable(bin_generator bin_generator.cpp)
-target_link_libraries(bin_generator ${PROJECT_NAME})
+set(MY_EXE bin_generator)
+add_executable(${MY_EXE} ${MY_EXE}.cpp)
+target_link_libraries(${MY_EXE} ${PROJECT_NAME})
+
