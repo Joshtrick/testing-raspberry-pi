@@ -10,7 +10,7 @@ class Proctimer
 {
 public:
   void get_start_time();
-  void get_end_time(string proc_name);
+  void get_end_time(char* proc_name = (char*) "Execution");
 private:
   long time_ms, time_us, time_ns;
   time_t time_s;

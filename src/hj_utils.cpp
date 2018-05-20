@@ -7,7 +7,7 @@ void Proctimer::get_start_time()
   clock_gettime(CLOCK_REALTIME, &t_start);
 }
 
-void Proctimer::get_end_time(string proc_name = "Execution")
+void Proctimer::get_end_time(char* proc_name)
 {
   clock_gettime(CLOCK_REALTIME, &t_end);
   if(t_end.tv_nsec-t_start.tv_nsec < 0)
