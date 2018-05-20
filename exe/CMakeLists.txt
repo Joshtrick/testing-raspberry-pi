@@ -7,3 +7,5 @@ target_link_libraries(test_tcp_speed_server ${PROJECT_NAME})
 add_executable(test_tcp_speed_client test_tcp_speed_client.cpp)
 target_link_libraries(test_tcp_speed_client ${PROJECT_NAME})
 
+add_executable(bin_generator bin_generator.cpp)
+target_link_libraries(bin_generator ${PROJECT_NAME})
