@@ -1,4 +1,4 @@
-#include "hj_tcp_ip.hpp"
+#include "hj_tcp_ip.h"
 
 //Server Part-create a server socket
 void server_socket_create(int &server_fd, int port, struct sockaddr_in &address)

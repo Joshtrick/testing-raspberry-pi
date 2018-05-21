@@ -1,4 +1,4 @@
-#include "hj_utils.hpp"
+#include "hj_utils.h"
 
 using namespace std;
 
@@ -7,7 +7,7 @@ void Proctimer::get_start_time()
   clock_gettime(CLOCK_REALTIME, &t_start);
 }
 
-void Proctimer::get_end_time(char* proc_name)
+void Proctimer::get_end_time(string proc_name)
 {
   clock_gettime(CLOCK_REALTIME, &t_end);
   if(t_end.tv_nsec-t_start.tv_nsec < 0)

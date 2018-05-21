@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "hj_tcp_ip.hpp"
-#include "hj_utils.hpp"
+#include "hj_tcp_ip.h"
+#include "hj_utils.h"
 
 using namespace std;
 
@@ -35,7 +36,7 @@ int main()
 
   a_timer.get_start_time();
   ofstream o_file;
-  o_file.open("../data/dummy_short_data.bin", ios::out | ios::app | ios::binary);
+  o_file.open("../data/dummy_short_data.bin", ios::out|ios::app|ios::binary);
   o_file.write(memblock, half_size);
   o_file.close();
   delete[] memblock;

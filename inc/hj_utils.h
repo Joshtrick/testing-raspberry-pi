@@ -1,8 +1,9 @@
-#ifndef HJ_UTILS_HPP
-#define HJ_UTILS_HPP
+#ifndef HJ_UTILS_H
+#define HJ_UTILS_H
 
 #include <iostream>
 #include <string>
+#include <string.h>
 #include <unistd.h>
 #include <time.h>
 
@@ -10,7 +11,7 @@ class Proctimer
 {
 public:
   void get_start_time();
-  void get_end_time(char* proc_name = (char*) "Execution");
+  void get_end_time(std::string proc_name = "Execution");
 private:
   long time_ms, time_us, time_ns;
   time_t time_s;
@@ -18,4 +19,4 @@ private:
 };
 
 
-#endif //HJ_UTILS_HPP
+#endif //HJ_UTILS_H
