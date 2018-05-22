@@ -1,19 +1,9 @@
-set(MY_EXE test_rw_speed)
-add_executable(${MY_EXE} ${MY_EXE}.cpp)
-target_link_libraries(${MY_EXE} ${PROJECT_NAME})
+#No need to change this CMakeLists in most cases.
+file(GLOB TEST *c *cpp)
 
-set(MY_EXE test_tcp_speed_server)
-add_executable(${MY_EXE} ${MY_EXE}.cpp)
-target_link_libraries(${MY_EXE} ${PROJECT_NAME})
-
-set(MY_EXE test_tcp_speed_client)
-add_executable(${MY_EXE} ${MY_EXE}.cpp)
-target_link_libraries(${MY_EXE} ${PROJECT_NAME})
-
-set(MY_EXE bin_generator)
-add_executable(${MY_EXE} ${MY_EXE}.cpp)
-target_link_libraries(${MY_EXE} ${PROJECT_NAME})
-
-set(MY_EXE video)
-add_executable(${MY_EXE} ${MY_EXE}.c)
-target_link_libraries(${MY_EXE} ${PROJECT_NAME})
+foreach(TEST_CASE ${TEST})
+  get_filename_component(FILE_NAME ${TEST_CASE} NAME_WE)
+  get_filename_component(EXT_NAME ${TEST_CASE} EXT)
+  add_executable(${FILE_NAME} ${FILE_NAME}${EXT_NAME})
+  target_link_libraries(${FILE_NAME} ${PROJECT_NAME})
+endforeach(${TEST_CASE})
