@@ -16,6 +16,8 @@ set(CMAKE_BUILD_TYPE Release)
 include_directories(
   /usr/local/include/
   /opt/vc/include/
+  /opt/vc/src/hello_pi/
+  /opt/vc/src/hello_pi/libs/ilclient/
   )
 
 #Link external libraries diectories
@@ -25,10 +27,13 @@ link_directories(
 
 #Link external libraries
 link_libraries(
+  -lpthread
   -lbcm_host
   -lopenmaxil
+  /opt/vc/src/hello_pi/libs/ilclient/libilclient.a
+  /opt/vc/src/hello_pi/libs/vgfont/libvgfont.a
   )
 
 #Add sub-directories of the project
 add_subdirectory(src/)
-add_subdirectory(exe/)
+add_subdirectory(test/)
